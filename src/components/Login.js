@@ -8,14 +8,12 @@ import {
   updateProfile,
 } from 'firebase/auth';
 import { auth } from '../utils/firebase';
-import { useNavigate } from 'react-router-dom';
 const Login = () => {
   const [isSignedInForm, setSignedForm] = useState(true);
   const [errorMessage, setErrorMessage] = useState(null);
   const email = useRef(null);
   const password = useRef(null);
   const name = useRef(null);
-  const navigate = useNavigate();
 
   const handleButtonClick = () => {
     // form validation
@@ -37,7 +35,6 @@ const Login = () => {
             photoURL: 'https://example.com/jane-q-user/profile.jpg',
           })
             .then(() => {
-              navigate('/browse');
               // Profile updated!
               // ...
             })
@@ -63,8 +60,6 @@ const Login = () => {
         .then((userCredential) => {
           // Signed in
           const user = userCredential.user;
-          console.log(user);
-          navigate('/browse');
           // ...
         })
         .catch((error) => {
