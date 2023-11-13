@@ -8,6 +8,7 @@ import {
   updateProfile,
 } from 'firebase/auth';
 import { auth } from '../utils/firebase';
+import { BG_URL } from '../utils/constants';
 const Login = () => {
   const [isSignedInForm, setSignedForm] = useState(true);
   const [errorMessage, setErrorMessage] = useState(null);
@@ -78,15 +79,16 @@ const Login = () => {
       <Header />
       <div className="absolute">
         <img
-          src="https://assets.nflxext.com/ffe/siteui/vlv3/a73c4363-1dcd-4719-b3b1-3725418fd91d/fe1147dd-78be-44aa-a0e5-2d2994305a13/IN-en-20231016-popsignuptwoweeks-perspective_alpha_website_large.jpg"
+          src={BG_URL}
           alt="background poster"
+          className="h-screen object-cover"
         />
       </div>
       <form
         onSubmit={(e) => {
           e.preventDefault();
         }}
-        className="absolute p-12 bg-black w-3/12 mt-32 my-36 mx-auto right-0 left-0 text-white bg-opacity-80"
+        className="absolute p-12 bg-black w-full md:w-3/12 mt-32 my-36 mx-auto right-0 left-0 text-white bg-opacity-80"
       >
         <h1 className="font-bold text-3xl py-4">
           {isSignedInForm ? 'Sign In' : 'Sign Up'}
