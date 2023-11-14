@@ -81,7 +81,7 @@ const Login = () => {
         <img
           src={BG_URL}
           alt="background poster"
-          className="h-screen object-cover"
+          className="h-screen object-cover w-screen"
         />
       </div>
       <form
